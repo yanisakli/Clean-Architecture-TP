@@ -6,7 +6,17 @@ namespace TPCleanArchi.App
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            if(args.Length > 1) 
+            {
+                if(args[0] == "get")
+                {
+                    Console.WriteLine("GET");
+                }
+                else if(args[0] == "add")
+                {
+                    Console.WriteLine("ADD " + args[1]);
+                }
+            }         
         }
     }
 }
