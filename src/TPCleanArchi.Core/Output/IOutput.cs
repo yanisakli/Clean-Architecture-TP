@@ -1,4 +1,4 @@
-public interface IOutup 
+public interface IOutput
 {
     void Write(string message);
 }

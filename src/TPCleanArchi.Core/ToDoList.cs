@@ -15,7 +15,7 @@ namespace TPCleanArchi.Core
         public void AddMark(Mark mark)
         {
             this.listMarks.Add(mark);
-            new WriteToFile().WriteLine($"\n{$"[{mark.GetDiff()}] {mark.Text}"}");
+            // new WriteToFile().WriteLine($"\n{$"[{mark.GetDiff()}] {mark.Text}"}");
         }
 
         public void RemoveMark(Mark mark)

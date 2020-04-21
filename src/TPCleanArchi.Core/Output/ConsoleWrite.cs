@@ -1,6 +1,6 @@
 using System;
 
-public class ConsoleWrite : IOutup 
+public class ConsoleWrite : IOutput 
 {
     public void Write(string message) => Console.WriteLine(message);
 }

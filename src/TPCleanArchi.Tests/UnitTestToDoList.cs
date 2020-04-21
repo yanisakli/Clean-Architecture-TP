@@ -24,5 +24,17 @@ namespace TPCleanArchi.Tests
             ToDoList.RemoveMark(mark);
             Assert.DoesNotContain(mark, ToDoList.listMarks);
         }
+
+        [Fact]
+        public void Should_find_todo_list_in_order()
+        {
+            ToDoList ToDoList = new ToDoList();
+            Mark OldMark = new Mark("OldMark");
+            Mark NewMark = new Mark("NewMark");
+            ToDoList.AddMark(OldMark);
+            ToDoList.RemoveMark(NewMark);
+            Assert.Equal(OldMark, ToDoList.listMarks[0]);
+            Assert.Equal(NewMark, ToDoList.listMarks[1]);
+        }
     }
 }

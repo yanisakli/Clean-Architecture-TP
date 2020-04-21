@@ -8,10 +8,13 @@ namespace TPCleanArchi.Core
         public DateTime Date {get; set;}
         public bool Done {get; private set;}
 
-        public Mark(string text)
+        public Mark(string text, DateTime? date = null)
         {
             this.Text = text;
-            this.Date = ApplicationTime.Now;
+            if (!date.HasValue)
+                this.Date = ApplicationTime.Now;
+            else
+                this.Date = date.Value;
             this.Done = false;
         }
 
@@ -32,8 +35,24 @@ namespace TPCleanArchi.Core
 
         public string FormatDate()
         {
-            Console.Write(this.GetDiff());
-            return "Format Date";
+            string result="";
+            TimeSpan timeDiff = GetDiff();
+            if(timeDiff.Days != 0){
+                result+=$"[{timeDiff.Days} d],";
+            }
+            if(timeDiff.Hours != 0){
+                result+=$"[{timeDiff.Hours} h],";
+            }
+            if(timeDiff.Minutes != 0){
+                result+=$"[{timeDiff.Minutes} min],";
+            }
+            if(timeDiff.Seconds != 0){
+                result+=$"[{timeDiff.Seconds} s],";
+            }
+            if(timeDiff.Milliseconds != 0){
+                result+=$"[{timeDiff.Milliseconds} ms],";
+            }
+            return result + this.Text;
         }
     }
 }

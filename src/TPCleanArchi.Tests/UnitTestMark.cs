@@ -11,7 +11,7 @@ namespace TPCleanArchi.Tests
         {
             DateTime testDate = new DateTime(2020, 03, 10, 10, 00, 00);
             ApplicationTime.SetNow = () => testDate;
-            Mark mark = new Mark("mark1");
+            Mark mark = new Mark("mark1",testDate);
 
             Assert.Equal(false, mark.Done);
             Assert.Equal("mark1", mark.Text);
@@ -33,21 +33,17 @@ namespace TPCleanArchi.Tests
         [Fact]
         public void Should_be_40_min_old()
         {
-            ApplicationTime.SetNow = () => new DateTime(2020, 03, 10, 10, 00, 00);
-            Mark mark = new Mark("mark1");
-            string resultDiff = mark.ToString();
-            Assert.Equal("[40 min] mark1",resultDiff);
-
+            ApplicationTime.SetNow = () => new DateTime(2020, 03, 10, 10, 40, 00);
+            Mark mark = new Mark("mark1",new DateTime(2020, 03, 10, 10, 00, 00));
+            Assert.Equal("[40 min],mark1", mark.FormatDate());
         }
 
         [Fact]
-        public void should_format_correctly()
+        public void should_return_31_days()
         {
-            ApplicationTime.SetNow = () => new DateTime(2020, 03, 10, 10, 00, 00);
-            Mark mark = new Mark("mark1");
-            string resultDiff = mark.FormatDate();
-            Assert.Equal("[40 min] mark1",resultDiff);
-
+            ApplicationTime.SetNow = () => new DateTime(2020, 06, 10, 10, 00, 00);
+            Mark mark = new Mark("mark1",new DateTime(2020, 05, 10, 10, 00, 00));
+            Assert.Equal(31, mark.GetDiff().Days);
         }
     }
 }
