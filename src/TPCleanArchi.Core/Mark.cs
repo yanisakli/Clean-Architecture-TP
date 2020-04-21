@@ -30,10 +30,10 @@ namespace TPCleanArchi.Core
 
         public override string ToString() 
         {
-            return $"[{this.GetDiff()}] {this.Text}";
+            return $"{this.Date} {this.Text}";
         }
 
-        public string FormatDate()
+        public string FormatMark()
         {
             string result="";
             TimeSpan timeDiff = GetDiff();

@@ -35,7 +35,7 @@ namespace TPCleanArchi.Tests
         {
             ApplicationTime.SetNow = () => new DateTime(2020, 03, 10, 10, 40, 00);
             Mark mark = new Mark("mark1",new DateTime(2020, 03, 10, 10, 00, 00));
-            Assert.Equal("[40 min],mark1", mark.FormatDate());
+            Assert.Equal("[40 min],mark1", mark.FormatMark());
         }
 
         [Fact]
@@ -43,7 +43,7 @@ namespace TPCleanArchi.Tests
         {
             ApplicationTime.SetNow = () => new DateTime(2020, 03, 10, 10, 10, 10);
             Mark mark = new Mark("mark2",new DateTime(2020, 03, 9, 9, 9, 9));
-            Assert.Equal("[1 d],[1 h],[1 min],[1 s],mark2", mark.FormatDate());
+            Assert.Equal("[1 d],[1 h],[1 min],[1 s],mark2", mark.FormatMark());
         }
 
         [Fact]
