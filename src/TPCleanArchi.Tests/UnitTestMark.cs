@@ -39,6 +39,14 @@ namespace TPCleanArchi.Tests
         }
 
         [Fact]
+        public void Should_be_1day_1hour_1mn_1s_1ms_min_old()
+        {
+            ApplicationTime.SetNow = () => new DateTime(2020, 03, 10, 10, 10, 10);
+            Mark mark = new Mark("mark2",new DateTime(2020, 03, 9, 9, 9, 9));
+            Assert.Equal("[1 d],[1 h],[1 min],[1 s],mark2", mark.FormatDate());
+        }
+
+        [Fact]
         public void should_return_31_days()
         {
             ApplicationTime.SetNow = () => new DateTime(2020, 06, 10, 10, 00, 00);

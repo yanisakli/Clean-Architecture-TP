@@ -32,7 +32,7 @@ namespace TPCleanArchi.Tests
             Mark OldMark = new Mark("OldMark");
             Mark NewMark = new Mark("NewMark");
             ToDoList.AddMark(OldMark);
-            ToDoList.RemoveMark(NewMark);
+            ToDoList.AddMark(NewMark);
             Assert.Equal(OldMark, ToDoList.listMarks[0]);
             Assert.Equal(NewMark, ToDoList.listMarks[1]);
         }

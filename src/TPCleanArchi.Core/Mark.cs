@@ -49,9 +49,6 @@ namespace TPCleanArchi.Core
             if(timeDiff.Seconds != 0){
                 result+=$"[{timeDiff.Seconds} s],";
             }
-            if(timeDiff.Milliseconds != 0){
-                result+=$"[{timeDiff.Milliseconds} ms],";
-            }
             return result + this.Text;
         }
     }
