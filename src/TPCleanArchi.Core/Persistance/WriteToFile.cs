@@ -12,7 +12,7 @@ namespace TPCleanArchi.Core
 
         public void WriteLine(string line)
         {
-            using (StreamWriter sw = File.AppendText(filePath)) sw.WriteLine(line);
+            using (StreamWriter sw = File.AppendText(filePath)) sw.Write(line);
         }
     }
 }

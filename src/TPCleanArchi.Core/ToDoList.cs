@@ -7,15 +7,19 @@ namespace TPCleanArchi.Core
     {
         public List<Mark> listMarks;
 
-        public ToDoList(){
+        public ToDoList()
+        {
             this.listMarks= new List<Mark>();
         }
 
-        public void AddMark(string Text){
-            this.listMarks.Add(new Mark(Text));
+        public void AddMark(Mark mark)
+        {
+            this.listMarks.Add(mark);
+            new WriteToFile().WriteLine($"\n{$"[{mark.GetDiff()}] {mark.Text}"}");
         }
 
-        public void RemoveMark(Mark mark){
+        public void RemoveMark(Mark mark)
+        {
             this.listMarks.Remove(mark);
         }
     }

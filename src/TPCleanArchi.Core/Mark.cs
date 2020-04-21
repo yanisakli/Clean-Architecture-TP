@@ -6,28 +6,34 @@ namespace TPCleanArchi.Core
     {
         public string Text {get; set;}
         public DateTime Date {get; set;}
-        public bool done {get; set;}
+        public bool Done {get; private set;}
 
         public Mark(string text)
         {
             this.Text = text;
             this.Date = ApplicationTime.Now;
-            this.done = false;
+            this.Done = false;
         }
 
-        public TimeSpan getDiff()
+        public TimeSpan GetDiff()
         {
             return ApplicationTime.Now - this.Date;
         }
 
-        public void setDone() 
+        public void SetDone()
         {
-            this.done = true;
+            this.Done = true;
         }
 
         public override string ToString() 
         {
-            return $"[{this.getDiff()}] {this.Text}";
+            return $"[{this.GetDiff()}] {this.Text}";
+        }
+
+        public string FormatDate()
+        {
+            Console.Write(this.GetDiff());
+            return "Format Date";
         }
     }
 }

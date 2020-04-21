@@ -9,17 +9,20 @@ namespace TPCleanArchi.Tests
         [Fact]
         public void Should_add_one_mark_in_todo_list()
         {
-            ToDoList toDoList = new ToDoList();
-            toDoList.AddMark("test");
+            ToDoList ToDoList = new ToDoList();
+            Mark mark = new Mark("MarkTest");
+            ToDoList.AddMark(mark);
+            Assert.Contains(mark, ToDoList.listMarks);
         }
 
         [Fact]
         public void Should_remove_one_mark_in_todo_list()
         {
-            ToDoList toDoList = new ToDoList();
-            Mark mark = new Mark("markTest");
-            toDoList.AddMark("markTest");
-
+            ToDoList ToDoList = new ToDoList();
+            Mark mark = new Mark("MarkTest");
+            ToDoList.AddMark(mark);
+            ToDoList.RemoveMark(mark);
+            Assert.DoesNotContain(mark, ToDoList.listMarks);
         }
     }
 }
