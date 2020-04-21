@@ -10,17 +10,10 @@ namespace TPCleanArchi.App
             if(args.Length > 1)
             {
                 var action = args[0];
+                var text = args[1];
                 var app = new Application(new ConsoleWrite());
 
-                if(action == "get")
-                {
-                    DateTime dateTime = Convert.ToDateTime(args[1]);
-                    app.GetMarks(dateTime);
-                }
-                else if(action == "add")
-                {
-                    app.AddMark(args[1]);
-                }
+                app.Run(action, text);
             }
         }
     }

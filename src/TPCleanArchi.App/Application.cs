@@ -18,7 +18,20 @@ namespace TPCleanArchi.App
             this.toDoList = new ToDoList();
         }
 
-        public void GetMarks(DateTime dateTime)
+        public void Run(string action, string text)
+        {
+            if(action == "get")
+            {
+                DateTime dateTime = Convert.ToDateTime(text);
+                this.getMarks(dateTime);
+            }
+            else if(action == "add")
+            {
+                this.addMark(text);
+            }
+        }
+
+        private void getMarks(DateTime dateTime)
         {
             output.Write("GET from DB");
             string[] lines = this.readToFile.ReadLines();
@@ -33,7 +46,7 @@ namespace TPCleanArchi.App
             }
         }
 
-        public void AddMark(string text)
+        private void addMark(string text)
         {
             output.Write($"ADD {text} to DB");
             Mark mark = new Mark(text);
